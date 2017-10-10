@@ -39,10 +39,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // _folderBrowserDialog
-            // 
-            this._folderBrowserDialog.ShowNewFolderButton = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -61,7 +57,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 261);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(305, 287);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // _sourceTextBox
@@ -69,20 +65,20 @@
             this._sourceTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this._sourceTextBox.Location = new System.Drawing.Point(3, 3);
             this._sourceTextBox.Name = "_sourceTextBox";
-            this._sourceTextBox.Size = new System.Drawing.Size(192, 22);
+            this._sourceTextBox.Size = new System.Drawing.Size(207, 22);
             this._sourceTextBox.TabIndex = 0;
             // 
             // _goalTextBox
             // 
             this._goalTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this._goalTextBox.Location = new System.Drawing.Point(3, 90);
+            this._goalTextBox.Location = new System.Drawing.Point(3, 98);
             this._goalTextBox.Name = "_goalTextBox";
-            this._goalTextBox.Size = new System.Drawing.Size(192, 22);
+            this._goalTextBox.Size = new System.Drawing.Size(207, 22);
             this._goalTextBox.TabIndex = 1;
             // 
             // _sourceButton
             // 
-            this._sourceButton.Location = new System.Drawing.Point(201, 3);
+            this._sourceButton.Location = new System.Drawing.Point(216, 3);
             this._sourceButton.Name = "_sourceButton";
             this._sourceButton.Size = new System.Drawing.Size(75, 23);
             this._sourceButton.TabIndex = 2;
@@ -92,7 +88,7 @@
             // 
             // _goalButton
             // 
-            this._goalButton.Location = new System.Drawing.Point(201, 90);
+            this._goalButton.Location = new System.Drawing.Point(216, 98);
             this._goalButton.Name = "_goalButton";
             this._goalButton.Size = new System.Drawing.Size(75, 23);
             this._goalButton.TabIndex = 3;
@@ -102,7 +98,7 @@
             // 
             // _doButton
             // 
-            this._doButton.Location = new System.Drawing.Point(201, 177);
+            this._doButton.Location = new System.Drawing.Point(216, 193);
             this._doButton.Name = "_doButton";
             this._doButton.Size = new System.Drawing.Size(75, 23);
             this._doButton.TabIndex = 4;
@@ -113,17 +109,17 @@
             // _filterTextBox
             // 
             this._filterTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this._filterTextBox.Location = new System.Drawing.Point(3, 177);
+            this._filterTextBox.Location = new System.Drawing.Point(3, 193);
             this._filterTextBox.Name = "_filterTextBox";
-            this._filterTextBox.Size = new System.Drawing.Size(192, 22);
+            this._filterTextBox.Size = new System.Drawing.Size(207, 22);
             this._filterTextBox.TabIndex = 0;
-            this._filterTextBox.Text = "please place filter string";
+            this._filterTextBox.Text = "*Summary*.doc";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(305, 287);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
             this.Text = "Main Form";

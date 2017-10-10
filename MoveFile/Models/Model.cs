@@ -9,6 +9,10 @@ namespace MoveFile.Models
 {
     class Model
     {
+        public delegate void DoneEventHandler();
+
+        public event DoneEventHandler doneEvent;
+
         string _sourcePath;
         string _goalPath;
         string _filterString;
@@ -16,31 +20,26 @@ namespace MoveFile.Models
         public string SourcePath { get => _sourcePath; set => _sourcePath = value; }
         public string GoalPath { get => _goalPath; set => _goalPath = value; }
         public string FilterString { get => _filterString; set => _filterString = value; }
+        private void NotifyDoneEvent() => doneEvent?.Invoke();
 
         public void DoOperate()
         {
-            string[] subDirectorys = GetSubDirectorys();
-            subDirectorys.ToList().ForEach(folder => Move(folder));
-        }
-
-        private string[] GetSubDirectorys()
-        {
-            string[] subDirectorys = Directory.GetDirectories(_sourcePath);
-            //subDirectorys.ToList().ForEach(e => Console.WriteLine(e));
-            return subDirectorys;
-        }
-
-        private void Move(string folder)
-        {
-            Console.WriteLine("------------------------------" + folder);
-            string[] files = Directory.GetFiles(folder, "*Summary*.doc", SearchOption.AllDirectories);
-            //files.ToList().ForEach(e => Console.WriteLine(e));
-            foreach (string file in files)
+            DirectoryInfo directoryInfo = new DirectoryInfo(_sourcePath);
+            DirectoryInfo[] subDirectoryInfos = directoryInfo.GetDirectories();
+            foreach (DirectoryInfo subDir in subDirectoryInfos)
             {
-                FileInfo fileInfo = new FileInfo(file);
-                //Console.WriteLine(fileInfo.Name);
-                fileInfo.MoveTo(folder + "\\" + fileInfo.Name);
+                DirectoryInfo goal = new DirectoryInfo(_goalPath + "\\" + subDir.Name);
+                DoMove(subDir, goal, _filterString);
             }
+            NotifyDoneEvent();
+        }        
+
+        private void DoMove(DirectoryInfo source, DirectoryInfo goal, string pattern)
+        {
+            List<FileInfo> fileInfos = source.GetFiles(pattern, SearchOption.AllDirectories).ToList();
+            if (fileInfos.Count != 0 && !goal.Exists)
+                Directory.CreateDirectory(goal.FullName);
+            fileInfos.ToList().ForEach(e => e.CopyTo(goal.FullName + "\\" + e.Name, true));
         }
     }
 }

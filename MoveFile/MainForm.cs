@@ -23,6 +23,7 @@ namespace MoveFile
         private void MainForm_Load(object sender, EventArgs e)
         {
             _model = new Model();
+            _model.doneEvent += () => MessageBox.Show("done");
         }
 
         private void _sourceButton_Click(object sender, EventArgs e)
