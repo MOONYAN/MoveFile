@@ -23,24 +23,28 @@ namespace MoveFile
         private void MainForm_Load(object sender, EventArgs e)
         {
             _model = new Model();
+            _model.doneEvent += () => MessageBox.Show("done");
         }
 
         private void _sourceButton_Click(object sender, EventArgs e)
         {
             _folderBrowserDialog.ShowDialog();
-            _sourceTextBox.Text = _folderBrowserDialog.SelectedPath;
-            _model.SourcePath = _folderBrowserDialog.SelectedPath;
+            string folderPath = _folderBrowserDialog.SelectedPath;
+            _sourceTextBox.Text = folderPath;
+            _model.SourcePath = folderPath;
         }
 
         private void _goalButton_Click(object sender, EventArgs e)
         {
             _folderBrowserDialog.ShowDialog();
-            _goalTextBox.Text = _folderBrowserDialog.SelectedPath;
-            _model.GoalPath = _folderBrowserDialog.SelectedPath;
+            string folderPath = _folderBrowserDialog.SelectedPath;
+            _goalTextBox.Text = folderPath;
+            _model.GoalPath = folderPath;
         }
 
         private void _doButton_Click(object sender, EventArgs e)
         {
+            _model.FilterString = _filterTextBox.Text;
             _model.DoOperate();
         }
     }
