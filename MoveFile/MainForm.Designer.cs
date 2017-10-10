@@ -35,6 +35,7 @@
             this._sourceButton = new System.Windows.Forms.Button();
             this._goalButton = new System.Windows.Forms.Button();
             this._doButton = new System.Windows.Forms.Button();
+            this._filterTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             this.tableLayoutPanel1.Controls.Add(this._sourceButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this._goalButton, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this._doButton, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this._filterTextBox, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -73,7 +75,7 @@
             // _goalTextBox
             // 
             this._goalTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this._goalTextBox.Location = new System.Drawing.Point(3, 89);
+            this._goalTextBox.Location = new System.Drawing.Point(3, 90);
             this._goalTextBox.Name = "_goalTextBox";
             this._goalTextBox.Size = new System.Drawing.Size(192, 22);
             this._goalTextBox.TabIndex = 1;
@@ -90,7 +92,7 @@
             // 
             // _goalButton
             // 
-            this._goalButton.Location = new System.Drawing.Point(201, 89);
+            this._goalButton.Location = new System.Drawing.Point(201, 90);
             this._goalButton.Name = "_goalButton";
             this._goalButton.Size = new System.Drawing.Size(75, 23);
             this._goalButton.TabIndex = 3;
@@ -100,13 +102,22 @@
             // 
             // _doButton
             // 
-            this._doButton.Location = new System.Drawing.Point(201, 175);
+            this._doButton.Location = new System.Drawing.Point(201, 177);
             this._doButton.Name = "_doButton";
             this._doButton.Size = new System.Drawing.Size(75, 23);
             this._doButton.TabIndex = 4;
             this._doButton.Text = "do operate";
             this._doButton.UseVisualStyleBackColor = true;
             this._doButton.Click += new System.EventHandler(this._doButton_Click);
+            // 
+            // _filterTextBox
+            // 
+            this._filterTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this._filterTextBox.Location = new System.Drawing.Point(3, 177);
+            this._filterTextBox.Name = "_filterTextBox";
+            this._filterTextBox.Size = new System.Drawing.Size(192, 22);
+            this._filterTextBox.TabIndex = 0;
+            this._filterTextBox.Text = "please place filter string";
             // 
             // MainForm
             // 
@@ -131,6 +142,7 @@
         private System.Windows.Forms.Button _sourceButton;
         private System.Windows.Forms.Button _goalButton;
         private System.Windows.Forms.Button _doButton;
+        private System.Windows.Forms.TextBox _filterTextBox;
     }
 }
 
