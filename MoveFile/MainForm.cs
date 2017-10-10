@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoveFile.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,39 @@ namespace MoveFile
 {
     public partial class MainForm : Form
     {
+        Model _model;
+
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            _model = new Model();
+            _model.doneEvent += () => MessageBox.Show("done");
+        }
+
+        private void _sourceButton_Click(object sender, EventArgs e)
+        {
+            _folderBrowserDialog.ShowDialog();
+            string folderPath = _folderBrowserDialog.SelectedPath;
+            _sourceTextBox.Text = folderPath;
+            _model.SourcePath = folderPath;
+        }
+
+        private void _goalButton_Click(object sender, EventArgs e)
+        {
+            _folderBrowserDialog.ShowDialog();
+            string folderPath = _folderBrowserDialog.SelectedPath;
+            _goalTextBox.Text = folderPath;
+            _model.GoalPath = folderPath;
+        }
+
+        private void _doButton_Click(object sender, EventArgs e)
+        {
+            _model.FilterString = _filterTextBox.Text;
+            _model.DoOperate();
         }
     }
 }
